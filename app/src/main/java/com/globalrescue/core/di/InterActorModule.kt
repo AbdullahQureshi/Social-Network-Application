@@ -1,6 +1,7 @@
 package com.globalrescue.core.di
 
 import com.globalrescue.domain.interactor.PostInteractor
+import com.globalrescue.domain.usecase.GeFavouritesUseCase
 import com.globalrescue.domain.usecase.GetPostCommentsUseCase
 import com.globalrescue.domain.usecase.GetPostUseCase
 import dagger.Module
@@ -17,10 +18,11 @@ object InterActorModule {
     @ActivityRetainedScoped
     fun provideGetPostsUseCases(
         getPostUseCase: GetPostUseCase,
-        getPostCommentsUseCase: GetPostCommentsUseCase
+        getPostCommentsUseCase: GetPostCommentsUseCase,
+        getFavouritesUseCase: GeFavouritesUseCase
 
     ): PostInteractor {
-        return PostInteractor(getPostUseCase, getPostCommentsUseCase)
+        return PostInteractor(getPostUseCase, getPostCommentsUseCase, getFavouritesUseCase)
     }
 
 }

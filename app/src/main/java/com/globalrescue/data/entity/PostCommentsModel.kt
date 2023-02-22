@@ -1,5 +1,6 @@
 package com.globalrescue.data.entity
 
+
 data class PostCommentsModel(
     val postId: Int,
     val id: Int,

@@ -6,25 +6,24 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.globalrescue.R
-import com.globalrescue.data.entity.PostModel
+import com.globalrescue.data.entity.PostCommentsModel
 
-class PostAdapter(private var dataSet: ArrayList<PostModel>) :
-    RecyclerView.Adapter<PostAdapter.ViewHolder>() {
-
-    var mClickListener: ItemClickListener? = null
-
+class PostCommentAdapter(private var dataSet: ArrayList<PostCommentsModel>) :
+    RecyclerView.Adapter<PostCommentAdapter.ViewHolder>() {
     /**
      * Provide a reference to the type of views that you are using
      * (custom ViewHolder)
      */
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
-        val title: TextView
+        val name: TextView
+        val email: TextView
         val body: TextView
 
         init {
             // Define click listener for the ViewHolder's View
-            title = view.findViewById(R.id.tv_name)
-            body = view.findViewById(R.id.tv_email)
+            name = view.findViewById(R.id.tv_name)
+            email = view.findViewById(R.id.tv_email)
+            body = view.findViewById(R.id.tv_body)
         }
     }
 
@@ -32,7 +31,7 @@ class PostAdapter(private var dataSet: ArrayList<PostModel>) :
     override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
         // Create a new view, which defines the UI of the list item
         val view = LayoutInflater.from(viewGroup.context)
-            .inflate(R.layout.row_post, viewGroup, false)
+            .inflate(R.layout.row_post_comment, viewGroup, false)
 
         return ViewHolder(view)
     }
@@ -42,24 +41,13 @@ class PostAdapter(private var dataSet: ArrayList<PostModel>) :
 
         // Get element from your dataset at this position and replace the
         // contents of the view with that element
-        dataSet?.get(position)?.let { postModel ->
-            viewHolder.title.text = postModel.title
-            viewHolder.body.text = postModel.body
-            viewHolder.itemView.setOnClickListener {
-                mClickListener?.onItemClick(postModel.id)
-            }
+        dataSet?.get(position)?.let {
+            viewHolder.name.text = dataSet.get(position).name
+            viewHolder.email.text = dataSet.get(position).email
+            viewHolder.body.text = dataSet.get(position).body
+
+
         }
-
-
-    }
-
-    fun updateList(dataSet: ArrayList<PostModel>) {
-        this.dataSet = dataSet
-        notifyDataSetChanged()
-    }
-
-    open fun setClickListener(itemClickListener: ItemClickListener) {
-        mClickListener = itemClickListener
     }
 
 

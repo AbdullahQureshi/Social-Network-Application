@@ -21,7 +21,6 @@ class PostRemoteStore(
                 it.map { it.toData() }
             }
         } else {
-
             arrayListOf()
         }
 
@@ -33,7 +32,7 @@ class PostRemoteStore(
         if (connectivity.isInternetAvailable()) {
             postApi.getPostComments(id).map { it.toData() }
         } else {
-            arrayListOf()
+            throw NetworkErrorException()
         }
 
     }

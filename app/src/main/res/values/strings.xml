@@ -2,6 +2,13 @@
     <string name="app_name">Social Networking Application</string>
     <string name="title_post">Post</string>
     <string name="title_favourites">Favourites</string>
+    <string name="title_post_comment">Comments</string>
+
     <string name="error_message">Offline Mode\nSomething went wrong. Please try agin.</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="empty_error_message">No Data Found</string>
+
 
 </resources>

@@ -25,15 +25,12 @@ class PostRepoImpl @Inject constructor(
     }
 
 
-    override suspend fun getFavouritePosts(id: Int): List<PostCommentsModel> = withContext(Dispatchers.IO) {
+    override suspend fun getPostComment(id: Int): List<PostCommentsModel> = withContext(Dispatchers.IO) {
+        postRemoteStore.getPostComments(id)
+    }
 
-        val postCommentsRemote = postRemoteStore.getPostComments(id)
-        if (postCommentsRemote.isNotEmpty()) {
-            postCommentsRemote
-        } else {
-            throw Exception()
-        }
-
+    override suspend fun getFavouritePosts(): List<PostModel> {
+        TODO("Not yet implemented")
     }
 
     override suspend fun setFavourite(id: Long, isFavourite: Boolean) {

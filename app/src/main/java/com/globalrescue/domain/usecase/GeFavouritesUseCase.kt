@@ -8,7 +8,7 @@ import com.globalrescue.domain.repo.PostRepo
 import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
-class GetPostCommentsUseCase @Inject constructor(
+class GeFavouritesUseCase @Inject constructor(
     private val postRepo: PostRepo
 ) {
 
@@ -17,7 +17,7 @@ class GetPostCommentsUseCase @Inject constructor(
         try {
             emit(Resource.Loading(ProgressBarState.Loading))
 
-            emit(Resource.Success(postRepo.getPostComment(id)))
+            emit(Resource.Success(postRepo.getFavouritePosts()))
 
         } catch (exception: Exception) {
 
