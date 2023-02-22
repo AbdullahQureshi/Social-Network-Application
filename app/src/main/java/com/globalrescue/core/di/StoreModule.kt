@@ -1,7 +1,9 @@
 package com.globalrescue.core.di
 
 import com.globalrescue.core.utils.ConnectivityUtil
+import com.globalrescue.data.cache.FavouritesDataStore
 import com.globalrescue.data.cache.PostDataStore
+import com.globalrescue.data.cache.dao.FavouritesDao
 import com.globalrescue.data.cache.dao.PostDao
 import com.globalrescue.data.network.PostRemoteStore
 import com.globalrescue.data.network.api.PostApi
@@ -22,6 +24,15 @@ class StoreModule {
         postDao: PostDao,
     ): PostDataStore {
         return PostDataStore(postDao)
+    }
+
+
+    @Provides
+    @ActivityRetainedScoped
+    fun providesFavouritesDataStore(
+        favouritesDao: FavouritesDao,
+    ): FavouritesDataStore {
+        return FavouritesDataStore(favouritesDao)
     }
 
 

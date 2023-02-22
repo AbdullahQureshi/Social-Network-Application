@@ -2,6 +2,7 @@ package com.globalrescue.core.di
 
 import android.content.Context
 import androidx.room.Room
+import com.globalrescue.data.cache.dao.FavouritesDao
 import com.globalrescue.data.cache.dao.PostDao
 import com.globalrescue.data.cache.system.AppDatabase
 import dagger.Module
@@ -32,4 +33,11 @@ object DatabaseModule {
     fun providePostDao(database: AppDatabase): PostDao {
         return database.PostDao()
     }
+
+    @Singleton
+    @Provides
+    fun provideFavouritesDao(database: AppDatabase): FavouritesDao {
+        return database.FavouritesDao()
+    }
+
 }

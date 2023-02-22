@@ -19,11 +19,6 @@ interface PostDao {
     @Query("Delete from posts")
     fun deleteAll()
 
-    @Query("UPDATE posts SET favourite = :isFavourite WHERE id = :id")
-    suspend fun setFavourite(id: Int, isFavourite: Boolean)
 
-
-    @Query("SELECT * FROM posts WHERE favourite = 'true'")
-    suspend fun getFavouritesPost(): List<PostEntity>
 
 }

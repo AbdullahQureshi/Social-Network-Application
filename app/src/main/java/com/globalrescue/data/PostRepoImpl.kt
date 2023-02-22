@@ -29,14 +29,6 @@ class PostRepoImpl @Inject constructor(
         postRemoteStore.getPostComments(id)
     }
 
-    override suspend fun getFavouritePosts(): List<PostModel> {
-        TODO("Not yet implemented")
-    }
-
-    override suspend fun setFavourite(id: Long, isFavourite: Boolean) {
-        TODO("Not yet implemented")
-    }
-
 
     private suspend fun getPostsFromLocal(): List<PostModel> = withContext(Dispatchers.IO) {
         postDataStore.getPosts().map {

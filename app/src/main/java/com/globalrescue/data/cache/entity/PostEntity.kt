@@ -12,7 +12,7 @@ data class PostEntity(
     @ColumnInfo(name = "userId") val userId: Int = 0,
     @ColumnInfo(name = "title") val title: String,
     @ColumnInfo(name = "body") val body: String,
-    @ColumnInfo(name = "favourite") val favourite: Boolean
+    @ColumnInfo(name = "favourite") val favourite: Int = 0
 )
 
 fun PostEntity.toData() = PostModel(

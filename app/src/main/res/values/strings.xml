@@ -10,5 +10,8 @@
 
     <string name="empty_error_message">No Data Found</string>
 
+    <string name="favourites_error_message">Favourite removed successfully</string>
+
+    <string name="favourites_success_message">Favourite set successfully</string>
 
 </resources>

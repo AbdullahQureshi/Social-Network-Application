@@ -9,7 +9,5 @@ interface PostRepo {
 
     suspend fun getPosts(): List<PostModel>
     suspend fun getPostComment(id : Int): List<PostCommentsModel>
-    suspend fun getFavouritePosts(): List<PostModel>
-    suspend fun setFavourite(id: Long, isFavourite: Boolean)
 
 }

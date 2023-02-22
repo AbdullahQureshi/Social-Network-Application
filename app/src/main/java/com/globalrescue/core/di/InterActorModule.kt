@@ -1,9 +1,8 @@
 package com.globalrescue.core.di
 
+import com.globalrescue.domain.interactor.FavouritesInteractor
 import com.globalrescue.domain.interactor.PostInteractor
-import com.globalrescue.domain.usecase.GeFavouritesUseCase
-import com.globalrescue.domain.usecase.GetPostCommentsUseCase
-import com.globalrescue.domain.usecase.GetPostUseCase
+import com.globalrescue.domain.usecase.*
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,10 +18,22 @@ object InterActorModule {
     fun provideGetPostsUseCases(
         getPostUseCase: GetPostUseCase,
         getPostCommentsUseCase: GetPostCommentsUseCase,
-        getFavouritesUseCase: GeFavouritesUseCase
 
-    ): PostInteractor {
-        return PostInteractor(getPostUseCase, getPostCommentsUseCase, getFavouritesUseCase)
+        ): PostInteractor {
+        return PostInteractor(getPostUseCase, getPostCommentsUseCase)
     }
+
+
+    @Provides
+    @ActivityRetainedScoped
+    fun provideFavouritesUseCases(
+        getFavouritesUseCase: GetFavouritesUseCase,
+        setFavouritesUseCase: SetFavouritesUseCase,
+        isFavouritesUseCase: isFavouritesUseCase,
+        deleteFavouritesUseCase: DeleteFavouritesUseCase
+    ): FavouritesInteractor {
+        return FavouritesInteractor(getFavouritesUseCase, setFavouritesUseCase, isFavouritesUseCase, deleteFavouritesUseCase)
+    }
+
 
 }

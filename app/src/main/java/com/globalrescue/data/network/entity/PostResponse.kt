@@ -17,5 +17,5 @@ fun PostResponse.toData() = PostModel(
     userId = userId,
     title = title,
     body = body,
-    favourite = false
+    favourite = 0
 )

@@ -7,7 +7,7 @@ data class PostModel(
     val id: Int = 0,
     val title: String,
     val body: String,
-    val favourite: Boolean
+    val favourite: Int
 )
 
 fun PostModel.toDomain() = PostModel(
@@ -15,7 +15,7 @@ fun PostModel.toDomain() = PostModel(
     userId = userId,
     title = title,
     body = body,
-    favourite = false
+    favourite = 0
 )
 
 fun PostModel.toLocal() = PostEntity(
